@@ -7,6 +7,7 @@ import { Planets } from './Components/planets';
 import { planets } from './Components/planets';
 import { users } from './Components/user';
 import { useState } from 'react';
+import { Tasks } from './Components/tasks';
  
 function App() {
 const [years, setYears] = useState(0);
@@ -26,11 +27,45 @@ const showFunc = () => {
 
 const [textColor, setColor] = useState("black")
 
+const [count, setCount] = useState(0);
+const Incr = () => {
+  setCount(count + 1)
+}
+
+const Decr = () => {
+  if(count <= 0){
+    count = 0
+  } else {
+setCount(count - 1)}
+}
+
+const Reset = () => {
+  if(count !== 0){
+     setCount(0)
+  } 
+}
+
+
+
+
+
+
+
 
   return (
     <div className="App">
 
-    <button onClick={() => {textColor ? setColor("green") : setColor("black")}}>Make green</button>
+
+     <Tasks />
+
+
+      <button onClick={Incr}> Up ↑ </button>
+      <button onClick={Decr}> Down ↓ </button>
+      <button onClick={Reset}> Reset </button>
+      <h1>{count}</h1>
+
+
+    <button onClick={() => {textColor === 'black' ? setColor("green") : setColor("black")}}>Make green</button>
     <h1 style={{color: textColor}}>This is Colorful Text</h1>
 
        <button onClick={showFunc}>SHOW/HIDE</button>
