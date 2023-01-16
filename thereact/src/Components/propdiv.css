@@ -1,0 +1,19 @@
+.propdiv {
+    max-width:800px;
+    height: 25;
+    display: flex;
+    flex-direction: column;
+    border: solid lightblue 2px
+}
+.task {
+    height:25px;
+    width:60%;
+    background-color:wheat;
+
+}
+
+.btn {
+    border: solid lightblue 2px;
+    height:25px;
+    width:40%;
+}

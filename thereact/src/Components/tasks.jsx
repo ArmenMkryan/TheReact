@@ -16,6 +16,7 @@ const addTask = () => {
   const task = {
     id:       todoList.length === 0 ? 1 : todoList[todoList.length - 1] .id + 1,
     taskName: newTask,
+    completed: false,
   }  
   setTodoList([...todoList, task]);
     }
@@ -28,6 +29,22 @@ const deleteTask = (id) => {
 
 
 }
+const completedTask = (id) => {
+    // setTodoList(task.filter((task) => task !== taskName)) 
+ 
+    setTodoList(
+      todoList.map((task) => {
+        if  (task.id === id) {
+          return {...task, completed: true};
+        } else {
+          return task;
+        }
+      })
+    );
+};
+
+
+
 
     return (
     <div className="App">
@@ -36,7 +53,13 @@ const deleteTask = (id) => {
   <button onClick={addTask}> Add Task </button>
 </div>
 <div className='list'>{todoList.map((task) => {
-  return <TaskComp taskName={task.taskName} id={task.id} deleteTask={deleteTask} />
+  return <TaskComp 
+            taskName={task.taskName} 
+            id={task.id} 
+            deleteTask={deleteTask} 
+            completed={task.completed} 
+            completedTask={completedTask} 
+            />
     
 })}</div>
     </div>)

@@ -8,7 +8,9 @@ import { planets } from './Components/planets';
 import { users } from './Components/user';
 import { useState } from 'react';
 import { Tasks } from './Components/tasks';
- 
+import { Catfact } from './Components/catfact';
+
+
 function App() {
 const [years, setYears] = useState(0);
 const yearsAge = () => {
@@ -55,7 +57,8 @@ const Reset = () => {
   return (
     <div className="App">
 
-
+    <Catfact/>
+     
      <Tasks />
 
 
