@@ -9,6 +9,8 @@ import { users } from './Components/user';
 import { useState } from 'react';
 import { Tasks } from './Components/tasks';
 import { Catfact } from './Components/catfact';
+import { Age } from './Components/age';
+import axios from 'axios';
 
 
 function App() {
@@ -56,6 +58,8 @@ const Reset = () => {
 
   return (
     <div className="App">
+
+    <Age />
 
     <Catfact/>
      
