@@ -10,7 +10,9 @@ import { useState } from 'react';
 import { Tasks } from './Components/tasks';
 import { Catfact } from './Components/catfact';
 import { Age } from './Components/age';
-import axios from 'axios';
+import { Excuser } from './Components/excuser';
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+
 
 
 function App() {
@@ -58,13 +60,20 @@ const Reset = () => {
 
   return (
     <div className="App">
-
-    <Age />
-
-    <Catfact/>
-     
-     <Tasks />
-
+<Router>
+  <div>navbar
+    <Link to="/excuses">excuses</Link>
+  </div>
+    <Routes>
+        
+        <Route path='/excuses' element ={<Excuser />} />
+        <Route path='/age' element ={<Age />} />
+        <Route path='/catfact' element ={<Catfact/>} />
+        <Route path='/tasks' element ={<Tasks />} />
+        <Route path='*' element={<h1>Page not found</h1>} />
+     {/* 03.02:39 sec video timecode */}
+     </Routes>
+</Router>
 
       <button onClick={Incr}> Up ↑ </button>
       <button onClick={Decr}> Down ↓ </button>

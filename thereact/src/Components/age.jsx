@@ -1,6 +1,6 @@
 import  axios, { Axios } from "axios";
 import { useState } from "react";
-import { useEffect } from "react";
+
 
 
 export function Age  () {
@@ -12,7 +12,7 @@ const fetchData = () => {
     axios.get(`https://api.agify.io/?name=${name}`).then((res) => {
         setPredicted(res.data)
 
-        console.log(res.data)
+    
 })
     }
 
