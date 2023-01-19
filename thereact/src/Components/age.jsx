@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 
-export function Age  () {
+export function Age  (props) {
 const [name, setName] = useState("")
 const [predicted, setPredicted] = useState(null)
 
@@ -23,6 +23,7 @@ const fetchData = () => {
             <h1>Predicted Age: {predicted?.age} </h1>
             <h1>Count: {predicted?.count} </h1>
             <h1>Name: {predicted?.name} </h1>
+            <h1>Age for: {props.userName}</h1>
         </div>
     )
 }

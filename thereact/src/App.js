@@ -8,11 +8,12 @@ import { Excuser } from './Components/excuser';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import { Home } from './Components/Home';
 import { Myhome } from './Components/myhome';
+import { useState } from 'react';
 
 
 
 function App() {
-
+const [userName, setUserName] = useState("")
 
 
 
@@ -37,10 +38,10 @@ const navi = {
         <Link style={navi} to='/excuser'>Excuser </Link>
         <Link style={navi} to='/tasks'>Tasks</Link>
     <Routes>
-        <Route path='/' element ={<Myhome />} />
-        <Route path='/age' element={<Age />} />
+        <Route path='/' element ={<Myhome userName={userName} setUserName={setUserName}/>}/>
+        <Route path='/age' element={<Age userName={userName} />} />
         <Route path='/catfact' element={<Catfact />} />
-        <Route path='/excuser' element={<Excuser />} />
+        <Route path='/excuser' element={<Excuser userName={userName} />} />
         <Route path='/tasks' element={<Tasks />} />
         <Route path='*' element={<h1>PAGE NOT FOUND</h1>} />
      </Routes>
