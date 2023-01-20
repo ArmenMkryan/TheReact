@@ -1,9 +1,10 @@
-import React from "react";
+
 import { useState, useEffect } from "react";
 import  axios  from "axios";
-
-export function Excuser (props) {
-
+import {React, useContext} from "react";
+import { AppContext } from "../App";
+export function Excuser () {
+    const {userName,setUserName} = useContext(AppContext)
     const [getData, setGetData] = useState('')
     const border = {
     border: '1px solid grey',
@@ -39,7 +40,7 @@ const fetchOffice = () => {
             <button onClick={fetchFamily}>Family</button>
             <button onClick={fetchOffice}>Office</button>
             <p style={{border}}>{getData}</p>
-            <h1>This excuser is for: {props.userName}</h1>
+            <h1>This excuser is for: {userName}</h1>
         </div>
     )
 }

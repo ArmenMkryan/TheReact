@@ -1,5 +1,5 @@
 
-import React from 'react';
+import  {React, useState, createContext } from 'react';
 import './App.css';
 import { Tasks } from './Components/tasks';
 import { Catfact } from './Components/catfact';
@@ -8,12 +8,13 @@ import { Excuser } from './Components/excuser';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import { Home } from './Components/Home';
 import { Myhome } from './Components/myhome';
-import { useState } from 'react';
+
+export const AppContext = createContext();
 
 
 
 function App() {
-const [userName, setUserName] = useState("")
+
 
 
 
@@ -24,13 +25,13 @@ const navi = {
   
 }
 
-
+const [userName, setUserName] = useState("pedro")
 
   return (
     <div className="App">
 
 
-  
+  <AppContext.Provider value={{userName, setUserName}}>
       <Router>
         <Link style={navi} to='/'>Home </Link>
         <Link style={navi} to='/age'>Age </Link>
@@ -39,13 +40,14 @@ const navi = {
         <Link style={navi} to='/tasks'>Tasks</Link>
     <Routes>
         <Route path='/' element ={<Myhome userName={userName} setUserName={setUserName}/>}/>
-        <Route path='/age' element={<Age userName={userName} />} />
+        <Route path='/age' element={<Age />} />
+        <Route path='/excuser' element={<Excuser />} />
         <Route path='/catfact' element={<Catfact />} />
-        <Route path='/excuser' element={<Excuser userName={userName} />} />
         <Route path='/tasks' element={<Tasks />} />
         <Route path='*' element={<h1>PAGE NOT FOUND</h1>} />
      </Routes>
 </Router>
+</AppContext.Provider>
     </div>
   );
 }
